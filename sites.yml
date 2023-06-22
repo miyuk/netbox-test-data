@@ -1,0 +1,4 @@
+---
+- name: Test Site
+  slug: test-site
+  status: active
