@@ -24,17 +24,17 @@ class LoadDataSourceScript(Script):
     )
 
     def run(self, data, commit):
-        sites = yaml.safe_load(self.data_file.data_as_string)
+        sites = yaml.safe_load(data['data_file'].data_as_string)
         output = []
 
         for site in sites:
             n_site = Site(
-                name=data['name'],
-                slug=data['slug'],
-                status=data['status']
+                name=site['name'],
+                slug=site['slug'],
+                status=site['status']
             )
             n_site.full_clean()
             n_site.save()
-            self.log_success(f"Created new site: {n_site}")
+            self.log_success(f'Created new site: {n_site}')
             output.append(f'{n_site.name}')
         return '\n'.join(output)
