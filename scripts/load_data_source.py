@@ -24,8 +24,6 @@ class LoadDataSourceScript(Script):
     )
 
     def run(self, data, commit):
-        output = []
-
         try:
             load_data = yaml.safe_load(data['data_file'].data_as_string)
         except:
@@ -46,6 +44,5 @@ class LoadDataSourceScript(Script):
                     status=site['status']
                 )
                 self.log_success(f'{"Create" if created else "Update"} site: {n_site}')
-                output.append(f'{n_site.name}')
 
-        return '\n'.join(output)
+        return
