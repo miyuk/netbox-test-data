@@ -1,5 +1,8 @@
 ---
 sites:
-  - name: Test Site
-    slug: test-site
+  - name: Site A
+    slug: site-a
+    status: active
+  - name: Site B
+    slug: site-b
     status: active
