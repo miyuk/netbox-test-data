@@ -40,7 +40,7 @@ class LoadDataSourceScript(Script):
             sites = load_data['sites']
 
             for site in sites:
-                n_site, created = Site.objects.get_or_created(
+                n_site, created = Site.objects.get_or_create(
                     name=site['name'],
                     slug=site['slug'],
                     status=site['status']
